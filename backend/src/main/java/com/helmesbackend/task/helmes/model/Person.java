@@ -7,7 +7,8 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = {"personSectors"})
+@ToString(exclude = {"personSectors"})
 @Entity
 @Table(name = "persons")
 @AllArgsConstructor
@@ -32,4 +33,11 @@ public class Person extends BaseEntity {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+
+    public void addSector(Sector sector) {
+        PersonSector personSector = new PersonSector();
+        personSector.setPerson(this);
+        personSector.setSector(sector);
+        this.personSectors.add(personSector);
+    }
 }

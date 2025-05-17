@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true, exclude = {"parent", "children", "personSectors"})
+@ToString(exclude = {"parent", "children", "personSectors"})
 @Entity
 @Table(name = "sectors")
 @AllArgsConstructor
