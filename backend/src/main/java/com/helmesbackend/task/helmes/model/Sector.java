@@ -1,4 +1,4 @@
-package model;
+package com.helmesbackend.task.helmes.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,7 +6,7 @@ import lombok.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = {"parent", "children", "personSectors"})
 @Entity
 @Table(name = "sectors")
 @AllArgsConstructor
@@ -15,7 +15,7 @@ import java.util.Set;
 public class Sector extends BaseEntity {
 
 
-    @Column
+    @Column(nullable = false)
     @NonNull
     private String name;
 
@@ -23,6 +23,11 @@ public class Sector extends BaseEntity {
     @JoinColumn(name = "parent_id")
     private Sector parent;
 
+    @OneToMany(mappedBy = "parent")
+    private Set<Sector> children = new HashSet<>();
+
+    @Column
+    private Integer level = 0;
 
     @OneToMany(mappedBy = "sector")
     private Set<PersonSector> personSectors = new HashSet<>();

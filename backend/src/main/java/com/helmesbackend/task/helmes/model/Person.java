@@ -1,8 +1,7 @@
-package model;
+package com.helmesbackend.task.helmes.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;

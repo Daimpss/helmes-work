@@ -1,4 +1,4 @@
-package model;
+package com.helmesbackend.task.helmes.model;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
