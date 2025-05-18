@@ -12,6 +12,7 @@ import java.util.Set;
 @Table(name = "sectors")
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Data
 public class Sector extends BaseEntity {
 

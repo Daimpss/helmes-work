@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+
+  backend:
+    build: ./backend
+    container_name: helmes-backend
+    ports:
+      - "8080:8080"
+
+    environment:
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRATION=604800000
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/helmes_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=${DATABASE_PASSWORD}
+
+    depends_on:
+      - postgres
+    networks:
+      - helmes-network
+
+
+
+
+
+  postgres:
+    image: postgres:17
+    container_name: helmes-postgres
+    ports:
+      # external:internal
+      - "7890:5432"
+    volumes:
+      - sql-volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=helmes_db
+      - POSTGRES_USER=${POSTGRES_USERNAME}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+
+    restart: on-failure
+    logging:
+      options:
+        max-size: 10m
+        max-file: 3
+    networks:
+      - helmes-network
+
+networks:
+  helmes-network:
+    driver: bridge
+
+volumes:
+  sql-volume:

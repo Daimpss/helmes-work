@@ -17,10 +17,6 @@ public class SectorService {
         this.sectorRepository = sectorRepository;
     }
 
-    public List<Sector> getTopLevelSectors() {
-        return sectorRepository.findByParentIsNullOrderByName();
-    }
-
     public List<Sector> getAllSectors() {
         return sectorRepository.findAll();
     }
