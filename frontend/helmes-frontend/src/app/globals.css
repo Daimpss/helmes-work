@@ -1,0 +1,148 @@
+.sector-list {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.sector-item {
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 2px;
+}
+
+.sector-item:hover {
+  background-color: #f8f9fa !important;
+}
+
+.sector-item.selected {
+  background-color: #e7f0ff;
+}
+
+.sector-item.selected:hover {
+  background-color: #d1e7ff !important;
+}
+
+.form-check-input:checked {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.sector-label {
+  cursor: pointer;
+  flex: 1;
+}
+
+.sector-main {
+  font-weight: bold;
+  color: #0d6efd;
+  border-top: 1px solid #e9ecef;
+  margin-top: 0.5rem;
+}
+
+.sector-sub {
+  color: #495057;
+}
+
+.sector-deep {
+  color: #6c757d;
+}
+
+.sector-container {
+  margin-bottom: 1rem;
+}
+
+/* Sector list container */
+.sector-list {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+}
+
+/* General sector item */
+.sector-item {
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 2px;
+}
+
+.sector-item:hover {
+  background-color: #f8f9fa !important;
+}
+
+.sector-item.selected {
+  background-color: #e7f0ff;
+}
+
+.sector-item.selected:hover {
+  background-color: #d1e7ff !important;
+}
+
+/* Sector item content wrapper */
+.sector-item-content {
+  display: flex;
+  align-items: center;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+/* Checkbox style */
+.form-check-input:checked {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+/* Label style */
+.sector-label {
+  cursor: pointer;
+  flex: 1;
+  margin-left: 0.5rem;
+}
+
+/* Level-specific styles */
+.sector-level-0 {
+  font-weight: bold;
+  color: #0d6efd;
+  border-top: 1px solid #e9ecef;
+  margin-top: 0.5rem;
+  padding-top: 0.25rem;
+}
+
+.sector-level-1 {
+  color: #495057;
+}
+
+.sector-level-2 {
+  color: #6c757d;
+}
+
+.sector-level-3 {
+  color: #6c757d;
+}
+
+/* Indentation classes */
+.indent-0 { padding-left: 0.5rem; }
+.indent-1 { padding-left: 1.7rem; }
+.indent-2 { padding-left: 2.9rem; }
+.indent-3 { padding-left: 4.1rem; }
+
+/* Loading spinner container */
+.spinner-container {
+  text-align: center;
+  padding: 1rem;
+}
