@@ -17,6 +17,4 @@ public class PersonDTO {
     private String name;
     private Boolean agreeTerms;
     private Set<SectorDTO> sectors;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }

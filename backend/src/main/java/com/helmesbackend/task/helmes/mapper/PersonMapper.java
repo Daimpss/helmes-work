@@ -35,8 +35,6 @@ public class PersonMapper {
                 .name(person.getName())
                 .agreeTerms(person.getAgreeTerms())
                 .sectors(sectorDtos)
-                .createdAt(person.getCreatedAt())
-                .updatedAt(person.getUpdatedAt())
                 .build();
     }
 }
