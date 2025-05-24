@@ -24,7 +24,6 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-import static org.hamcrest.Matchers.any;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -40,19 +39,12 @@ public class PersonServiceTest {
     @Mock
     private PersonMapper personMapper;
 
-    @Mock
-    private JwtService jwtService;
-
     @InjectMocks
     private PersonService personService;
 
     private PersonFormDTO personFormDTO;
     private Person person;
-    private PersonDTO personDTO;
     private Sector sector;
-    private Sector sector2;
-
-    private SectorDTO sectorDTO;
 
 
     @Test
@@ -101,8 +93,6 @@ public class PersonServiceTest {
                 .name("John Doe")
                 .agreeTerms(true)
                 .sectors(sectorDTOs)  // Only 1 sector
-                .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
                 .build();
 
         when(personRepository.save(ArgumentMatchers.any())).thenReturn(person);

@@ -45,7 +45,7 @@ public class PersonController {
         SessionResultDTO result = personService.processPersonForm(formDto, token);
         ResponseEntity.BodyBuilder responseBuilder = ResponseEntity.ok();
 
-        if (result.isNewSession() || token == null) {
+        if (result.isNewSession()) {
             // Create cookie with the token (7 days expiration)
             ResponseCookie cookie = ResponseCookie.from("session_token", result.getToken())
                     .httpOnly(true)
@@ -58,15 +58,8 @@ public class PersonController {
         return responseBuilder.body(result.getPerson());
     }
 
-    @GetMapping("/{id}")
-    @Operation(summary = "Get person by ID",
-            description = "Retrieves a person by their ID including selected sectors")
-    public ResponseEntity<PersonDTO> getPersonById(@PathVariable Long id) {
-        return ResponseEntity.ok(personService.getPersonById(id));
-    }
-
-    @GetMapping("/current")
-    @Operation(summary = "Get current person", description = "Get person data for current session")
+    @GetMapping
+    @Operation(summary = "Get current person session", description = "Get person data for current session")
     public ResponseEntity<?> getCurrentPerson(
             @CookieValue(name = "session_token", required = false) String token) {
 
