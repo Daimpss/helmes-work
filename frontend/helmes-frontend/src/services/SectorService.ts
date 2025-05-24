@@ -8,6 +8,10 @@ export default class SectorService {
 
     private static httpClient = axios.create({
         baseURL: 'http://localhost:8080/api/sectors',
+        withCredentials: true,
+        headers: {
+            'Content-Type': 'application/json',
+        },
     });
 
     static async getAllSectors() : Promise<IResultObject<ISectorDTO[]>> {

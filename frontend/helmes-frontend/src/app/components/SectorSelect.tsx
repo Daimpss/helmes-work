@@ -50,21 +50,58 @@ export const SectorSelect: React.FC<SectorSelectProps> = ({
     return result;
   };
 
-  // Toggle sector selection
+  const getParentIds = (sectorId: number): number[] => {
+    const sector = flatSectors.find((s) => s.id === sectorId);
+    if (!sector || !sector.parentId) {
+      return [];
+    }
+
+    const parentIds = [sector.parentId];
+    const parentParentIds = getParentIds(sector.parentId);
+    return [...parentIds, ...parentParentIds];
+  };
+
+  const getChildIds = (sectorId: number): number[] => {
+    const children = flatSectors.filter((s) => s.parentId === sectorId);
+    let allChildIds: number[] = [];
+
+    children.forEach((child) => {
+      allChildIds.push(child.id);
+      const grandChildren = getChildIds(child.id);
+      allChildIds = [...allChildIds, ...grandChildren];
+    });
+
+    return allChildIds;
+  };
+
   const toggleSector = (sectorId: number) => {
     const newSelection = [...selectedSectors];
-    const index = newSelection.indexOf(sectorId);
+    const isCurrentlySelected = newSelection.includes(sectorId);
 
-    if (index === -1) {
-      newSelection.push(sectorId);
+    if (isCurrentlySelected) {
+      const childIds = getChildIds(sectorId);
+      const idsToRemove = [sectorId, ...childIds];
+
+      idsToRemove.forEach((id) => {
+        const index = newSelection.indexOf(id);
+        if (index !== -1) {
+          newSelection.splice(index, 1);
+        }
+      });
     } else {
-      newSelection.splice(index, 1);
+      const parentIds = getParentIds(sectorId);
+      const idsToAdd = [sectorId, ...parentIds];
+
+      idsToAdd.forEach((id) => {
+        if (!newSelection.includes(id)) {
+          newSelection.push(id);
+        }
+      });
     }
 
     onChange(newSelection);
   };
 
-  // Generate indentation based on level
   const getIndentation = (level: number) => {
     if (level === 0) return "";
     if (level === 1) return "• ";
