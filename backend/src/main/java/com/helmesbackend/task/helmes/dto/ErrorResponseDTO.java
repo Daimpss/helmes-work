@@ -29,11 +29,10 @@ public class ErrorResponseDTO {
                 .build();
     }
 
-    public ErrorResponseDTO addError(String field, String errorMessage) {
+    public void addError(String field, String errorMessage) {
         if (errors == null) {
             errors = new HashMap<>();
         }
         errors.put(field, errorMessage);
-        return this;
     }
 }

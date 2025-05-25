@@ -46,7 +46,6 @@ public class PersonController {
         ResponseEntity.BodyBuilder responseBuilder = ResponseEntity.ok();
 
         if (result.isNewSession()) {
-            // Create cookie with the token (7 days expiration)
             ResponseCookie cookie = ResponseCookie.from("session_token", result.getToken())
                     .httpOnly(true)
                     .path("/")

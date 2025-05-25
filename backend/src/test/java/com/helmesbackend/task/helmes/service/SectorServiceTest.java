@@ -31,7 +31,6 @@ public class SectorServiceTest {
 
     @BeforeEach
     void setUp() {
-        // Create some mock sectors for testing
         Sector sector1 = new Sector();
         sector1.setId(1L);
         sector1.setName("Manufacturing");
@@ -61,7 +60,6 @@ public class SectorServiceTest {
         assertEquals("Manufacturing", result.get(0).getName());
         assertEquals("Food and Beverage", result.get(1).getName());
 
-        // Verify that the repository method was called exactly once
         verify(sectorRepository, times(1)).findAll();
     }
 }

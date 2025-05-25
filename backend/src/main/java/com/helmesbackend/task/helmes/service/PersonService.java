@@ -40,8 +40,7 @@ public class PersonService {
         if (token != null && jwtService.validateToken(token)) {
             personId = jwtService.extractPersonId(token);
             log.debug("Found existing person ID from token: {}", personId);
-        }
-        else {
+        } else {
             log.debug("No valid token provided, will create new person");
         }
 

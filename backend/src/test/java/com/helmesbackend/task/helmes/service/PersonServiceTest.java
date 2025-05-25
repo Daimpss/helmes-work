@@ -8,9 +8,6 @@ import com.helmesbackend.task.helmes.model.Sector;
 import com.helmesbackend.task.helmes.repository.SectorRepository;
 import com.helmesbackend.task.helmes.repository.PersonRepository;
 import com.helmesbackend.task.helmes.dto.PersonFormDTO;
-
-import jakarta.persistence.EntityNotFoundException;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentMatchers;
@@ -42,10 +39,6 @@ public class PersonServiceTest {
     @InjectMocks
     private PersonService personService;
 
-    private PersonFormDTO personFormDTO;
-    private Person person;
-    private Sector sector;
-
 
     @Test
     void PersonService_savePerson_createsPersonWithSectors() {
@@ -53,7 +46,7 @@ public class PersonServiceTest {
         Set<Long> sectorIds = new HashSet<>();
         sectorIds.add(1L);
 
-        sector = Sector.builder()
+        Sector sector = Sector.builder()
                 .name("Technology")
                 .parent(null)
                 .children(new HashSet<>())
@@ -62,13 +55,13 @@ public class PersonServiceTest {
                 .build();
         sector.setId(1L);
 
-        personFormDTO = PersonFormDTO.builder()
+        PersonFormDTO personFormDTO = PersonFormDTO.builder()
                 .name("John Doe")
                 .agreeTerms(true)
                 .sectorIds(sectorIds)
                 .build();
 
-        person = Person.builder()
+        Person person = Person.builder()
                 .name("John Doe")
                 .agreeTerms(true)
                 .personSectors(new HashSet<>())

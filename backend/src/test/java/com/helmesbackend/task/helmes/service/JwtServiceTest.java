@@ -25,7 +25,7 @@ public class JwtServiceTest {
 
         assertNotNull(token);
         assertFalse(token.isEmpty());
-        assertEquals(3, token.split("\\.").length); // JWT has 3 parts separated by dots
+        assertEquals(3, token.split("\\.").length);
     }
 
     @Test
@@ -59,27 +59,24 @@ public class JwtServiceTest {
 
     @Test
     void shouldRejectExpiredToken() {
-        // Given - Create service with very short expiration
         JwtService shortExpirationService = new JwtService();
         ReflectionTestUtils.setField(shortExpirationService, "secret", "testSecretKey123456789012345678901234567890");
         ReflectionTestUtils.setField(shortExpirationService, "expiration", 1L); // 1 millisecond
 
         String token = shortExpirationService.generateToken(123L);
 
-        // When - Wait for token to expire
+
         try {
-            Thread.sleep(10); // Wait a bit to ensure expiration
+            Thread.sleep(10);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
 
-        // Then
         assertFalse(shortExpirationService.validateToken(token));
     }
 
     @Test
     void shouldReturnNullForInvalidTokenExtraction() {
-        // Test extracting person ID from invalid tokens
         assertNull(jwtService.extractPersonId(null));
         assertNull(jwtService.extractPersonId("invalid.token"));
         assertNull(jwtService.extractPersonId(""));

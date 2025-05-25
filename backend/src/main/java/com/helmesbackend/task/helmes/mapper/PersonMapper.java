@@ -25,7 +25,6 @@ public class PersonMapper {
             return null;
         }
 
-        // Map sectors from PersonSector relationships
         Set<SectorDTO> sectorDtos = person.getPersonSectors().stream()
                 .map(ps -> sectorMapper.toDto(ps.getSector()))
                 .collect(Collectors.toSet());
