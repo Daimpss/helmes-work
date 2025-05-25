@@ -21,7 +21,7 @@ Technical assessment project developed as part of the application process for a 
 - **Database**: PostgreSQL 17
 - **Authentication**: JWT-based session management
 - **API Documentation**: Swagger/OpenAPI 3
-- **Architecture**: RESTful API with reoository/service layer pattern
+- **Architecture**: RESTful API with repository/service layer pattern
 - **Testing**: JUnit 5 with Mockito
 
 Project can be run through the Docker.
