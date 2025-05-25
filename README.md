@@ -33,5 +33,7 @@ Project can be run through the Docker.
 
 # Sectors data - 
 ![image](https://github.com/user-attachments/assets/18ef6a13-0dd2-4980-8648-290f67b19524)
+![image](https://github.com/user-attachments/assets/0fdcc4f6-8540-45da-88be-07fa703a0860)
+
 
 Persons and person_sectors tables are empty. :)
