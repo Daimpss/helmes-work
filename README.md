@@ -25,3 +25,7 @@ Technical assessment project developed as part of the application process for a 
 - **Testing**: JUnit 5 with Mockito
 
 Project can be run through the Docker.
+
+
+### ERD
+![Image](https://github.com/user-attachments/assets/5b15f910-945b-4fd9-9e74-a1352fff3163)
