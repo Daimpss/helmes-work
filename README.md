@@ -27,5 +27,11 @@ Technical assessment project developed as part of the application process for a 
 Project can be run through the Docker.
 
 
-### ERD
+## 🗄️ Database Schema
 ![Image](https://github.com/user-attachments/assets/5b15f910-945b-4fd9-9e74-a1352fff3163)
+
+
+# Sectors data - 
+![image](https://github.com/user-attachments/assets/18ef6a13-0dd2-4980-8648-290f67b19524)
+
+Persons and person_sectors tables are empty. :)
