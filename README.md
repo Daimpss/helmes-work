@@ -23,3 +23,5 @@ Technical assessment project developed as part of the application process for a 
 - **API Documentation**: Swagger/OpenAPI 3
 - **Architecture**: RESTful API with reoository/service layer pattern
 - **Testing**: JUnit 5 with Mockito
+
+Project can be run through the Docker.
